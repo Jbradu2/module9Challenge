@@ -1,6 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const { title } = require('process');
+const { DESTRUCTION } = require('dns');
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -9,10 +11,21 @@ const questions = [
     name: 'title',
     message: 'Enter your project title: ',
 },
+// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
 {
     type: 'input',
     name: 'description',
     message: 'Enter project description: ',
+},
+{
+  type: 'input',
+  name: 'usage',
+  message: 'Enter project usage information: ',
+},
+{
+  type: 'input',
+  name: 'Instillation',
+  message: 'Enter project insillation instructions: ',
 },
 {
   type: 'input',
@@ -33,14 +46,21 @@ function init() {
   .prompt(questions)
   .then((anwsers) => {
     //use back ticks for anwsers
-    const readmeContent = generatReadme();
+    const readmeContent = generatReadMe();
   }
 }
 //Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+function generateReadMe(){
+  //title
+  //discription
+  //instillation instructions
+  //usage information
+  //contriputionguidlines
+  //test instructions
+}
 // WHEN I enter my project title
 // THEN this is displayed as the title of the README
 // WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-// THEN this information is added to the sections of the README entitled Description, Installation, Usage, Contributing, and Tests
 // WHEN I choose a license for my application from a list of options
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 // WHEN I enter my GitHub username
