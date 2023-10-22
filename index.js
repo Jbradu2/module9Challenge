@@ -24,7 +24,7 @@ const questions = [
 },
 {
   type: 'input',
-  name: 'Instillation',
+  name: 'instillation',
   message: 'Enter project insillation instructions: ',
 },
 {
@@ -32,11 +32,21 @@ const questions = [
   name: 'usage',
   message: 'Enter information: ',
 },
+{
+  type: 'input',
+  name: 'contributing',
+  message: 'Enter contiubtion guidline information: ',
+},
+{
+type: 'input',
+name: 'test',
+message: 'Enter test instructions: ',
+},
 ];
 
 // TODO: Create a function to write README file
-function writeToFile (fileName, data) {
-  FileSystem.writefile (fileName, data,) 
+function writeToFile (Readme, generatereadme()) {
+  FileSystem.writefile (Readme, generatereadme()) 
 };
 
 // TODO: Create a function to initialize app
@@ -50,17 +60,17 @@ function init() {
   }
 }
 //Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
+// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
 function generateReadMe(){
-  //title
-  //discription
-  //instillation instructions
-  //usage information
-  //contriputionguidlines
-  //test instructions
+  //${anwsers.title}
+  //${anwsers.discription}
+  //${anwsers.instillation}
+  //${anwsers.usage}
+  //${anwsers.contributing}}
+  //${anwsers.tests}
 }
 // WHEN I enter my project title
 // THEN this is displayed as the title of the README
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
 // WHEN I choose a license for my application from a list of options
 // THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
 // WHEN I enter my GitHub username
