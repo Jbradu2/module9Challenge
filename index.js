@@ -1,8 +1,8 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
-const fs = require('fs');
-const { title } = require('process');
-const { DESTRUCTION } = require('dns');
+const fs = require ('fs');
+
+
 
 // TODO: Create an array of questions for user input
 const questions = [
@@ -24,8 +24,8 @@ const questions = [
 },
 {
   type: 'input',
-  name: 'instillation',
-  message: 'Enter project insillation instructions: ',
+  name: 'installation',
+  message: 'Enter project installation instructions: ',
 },
 {
   type: 'input',
@@ -42,12 +42,22 @@ type: 'input',
 name: 'test',
 message: 'Enter test instructions: ',
 },
+{
+type: 'list',
+name: 'license',
+message: 'Choose a license for your project:',
+choices: ['MIT', 'GPL', 'Apache', 'None'],
+}
 ];
-
 // TODO: Create a function to write README file
-function writeToFile (Readme, generatereadme()) {
-  FileSystem.writefile (Readme, generatereadme()) 
-};
+function writeToFile (filename, readMeContent) {
+  const filename ='README.md'
+
+  FileSystem.writefile (filename, readMeContent) 
+  console.log(`Responses saved to ${filename}`);
+}
+
+
 
 // TODO: Create a function to initialize app
 function init() {
@@ -55,29 +65,62 @@ function init() {
   //.use .prompt to ask and .then for anwsers
   .prompt(questions)
   .then((anwsers) => {
-    //use back ticks for anwsers
-    const readmeContent = generatReadMe();
-  }
+
+    const readMeContent = generateReadMe(anwsers);
+
+    writeToFile('README.md', readMeContent);
+  });
 }
 //Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 // WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-function generateReadMe(){
-  //${anwsers.title}
-  //${anwsers.discription}
-  //${anwsers.instillation}
-  //${anwsers.usage}
-  //${anwsers.contributing}}
-  //${anwsers.tests}
+function generateReadMe(anwsers){
+  //use back ticks for anwsers
+  // use # symbol for headdings 
+
+`  
+# ${anwsers.title}
+
+## Description
+  ${anwsers.description}
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [Tests](#tests)
+- [Questions](#questions)
+
+  ## Instillation
+  ${anwsers.installation}
+
+  ## Usage
+  ${anwsers.usage}
+
+  ## Contributing
+  ${anwsers.contributing}
+
+  ## Tests
+  ${anwsers.tests} 
+  
+  ## Questions
+  If you have any questions, please contact me at [GitHub](https://github.com/Jbradu2) or via email at Joshua.ry.bradshaw@gmail.com.
+  `;
 }
 // WHEN I enter my project title
-// THEN this is displayed as the title of the README
-// WHEN I choose a license for my application from a list of options
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled License that explains which license the application is covered under
-// WHEN I enter my GitHub username
-// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
+// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled 
+//## Badges
+//![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 // WHEN I enter my email address
 // THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
+// THEN this is displayed as the title of the README
+// WHEN I choose a license for my application from a list of options
+//      License that explains which license the application is covered under
+//how to add licence?
+// WHEN I enter my GitHub username
+// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
+// link this to questions cat
 // WHEN I click on the links in the Table of Contents
+// how to make table of contents?w
 // THEN I am taken to the corresponding section of the README
 
 // Function call to initialize app
