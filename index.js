@@ -39,7 +39,7 @@ const questions = [
 },
 {
 type: 'input',
-name: 'test',
+name: 'tests',
 message: 'Enter test instructions: ',
 },
 {
@@ -50,11 +50,14 @@ choices: ['MIT', 'GPL', 'Apache', 'None'],
 }
 ];
 // TODO: Create a function to write README file
-function writeToFile (filename, readMeContent) {
-  const filename ='README.md'
-
-  FileSystem.writefile (filename, readMeContent) 
-  console.log(`Responses saved to ${filename}`);
+function writeToFile(filename, readMeContent) {
+  fs.writeFile(filename, readMeContent, (err) => {
+    if (err) {
+      console.error(err);
+    } else {
+      console.log(`Responses saved to ${filename}`);
+    }
+  });
 }
 
 
@@ -73,11 +76,10 @@ function init() {
 }
 //Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
 // WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
+//use back ticks for anwsers
+// use # symbol for headdings  
 function generateReadMe(anwsers){
-  //use back ticks for anwsers
-  // use # symbol for headdings 
-
-`  
+  return `
 # ${anwsers.title}
 
 ## Description
@@ -89,6 +91,7 @@ function generateReadMe(anwsers){
 - [Contributing](#contributing)
 - [Tests](#tests)
 - [Questions](#questions)
+- [License](#license)
 
   ## Instillation
   ${anwsers.installation}
@@ -101,6 +104,9 @@ function generateReadMe(anwsers){
 
   ## Tests
   ${anwsers.tests} 
+
+  ## License
+  ${anwsers.license}
   
   ## Questions
   If you have any questions, please contact me at [GitHub](https://github.com/Jbradu2) or via email at Joshua.ry.bradshaw@gmail.com.
