@@ -74,10 +74,7 @@ function init() {
     writeToFile('README.md', readMeContent);
   });
 }
-//Description, Table of Contents, Installation, Usage, License, Contributing, Tests, and Questions
-// WHEN I enter a description, installation instructions, usage information, contribution guidelines, and test instructions
-//use back ticks for anwsers
-// use # symbol for headdings  
+
 function generateReadMe(anwsers){
   return `
 # ${anwsers.title}
@@ -112,23 +109,6 @@ function generateReadMe(anwsers){
   If you have any questions, please contact me at [GitHub](https://github.com/Jbradu2) or via email at Joshua.ry.bradshaw@gmail.com.
   `;
 }
-// WHEN I enter my project title
-// THEN a badge for that license is added near the top of the README and a notice is added to the section of the README entitled 
-//## Badges
-//![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-// WHEN I enter my email address
-// THEN this is added to the section of the README entitled Questions, with instructions on how to reach me with additional questions
-// THEN this is displayed as the title of the README
-// WHEN I choose a license for my application from a list of options
-//      License that explains which license the application is covered under
-//how to add licence?
-// WHEN I enter my GitHub username
-// THEN this is added to the section of the README entitled Questions, with a link to my GitHub profile
-// link this to questions cat
-// WHEN I click on the links in the Table of Contents
-// how to make table of contents?w
-// THEN I am taken to the corresponding section of the README
 
-// Function call to initialize app
 
 init();
